@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lucaburgio/iconoir@master/css/iconoir.css">
+    <link rel="shortcut icon" href="https://www.shareicon.net/data/512x512/2015/09/25/107042_new_512x512.png" type="image/x-icon">
+    <title>Google</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #121212;
+        color: white;
+
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.5rem;
+
+        width: 100vw;
+        max-width: 100%;
+        height: 100vh;
+    }
+
+    input {
+        color: inherit;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        width: 100%;
+        height: 100%;
+
+        padding: 2rem;
+    }
+
+    .search {
+        padding: 0rem 1.25rem;
+        background-color: #1b1b1b;
+        border-radius: 50px;
+
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        width: 100%;
+        max-width: 584px;
+
+        transition: 300ms;
+    }
+
+    .search:hover {
+        background-color: #242424;
+    }
+
+    .search__input {
+        background-color: inherit;
+        border: none;
+        outline: none;
+
+        padding: 1rem 0;
+
+        font-size: 1rem;
+
+        width: 100%;
+    }
+
+    .search__icon {
+        background-color: inherit;
+        color: inherit;
+        border: none;
+
+        font-size: inherit;
+    }
+
+    .button__group {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .options {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .options__button {
+        padding: 0.75rem;
+
+        background-color: #242424;
+        color: inherit;
+
+        border: 1px solid transparent;
+        border-radius: 5px;
+
+        transition: 200ms;
+    }
+
+    .options__button:hover {
+        border: 1px solid #8d8d8d;
+    }
+
+    .languages {
+        font-size: 0.75rem;
+    }
+
+    .languages a {
+        color: #8ab4f8;
+
+        text-decoration: none;
+
+        padding: 0 3px;
+    }
+
+    .languages a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<body>
+
+    <main class="main">
+        <img width="272" height="92" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png" alt="google logo">
+
+        <div class="search">
+            <i class="search__icon iconoir-search"></i>
+            <input class="search__input" type="text" />
+            <button class="search__icon iconoir-mic"></button>
+        </div>
+
+        <div class="options">
+            <button class="options__button">Google Search</button>
+            <button class="options__button">I'm Feeling Lucky</button>
+        </div>
+
+        <div class="languages">
+            Google offered in: <a href="#">हिन्दी</a> <a href="#">বাংলা</a> <a href="#">తెలుగు</a> <a href="#">मराठी</a>
+            <a href="#">தமிழ்</a> <a href="#">ગુજરાતી</a> <a href="#">ಕನ್ನಡ</a> <a href="#">മലയാളം</a> <a
+                href="#">ਪੰਜਾਬੀ</a>
+        </div>
+    </main>
+
+</body>
+
+</html>
