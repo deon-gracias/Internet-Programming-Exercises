@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <title>Internet Programming Exercises</title>
+</head>
+
+<style>
+    * {
+        font-family: "Inter", sans-serif;
+
+        color: white;
+
+        box-sizing: border-box;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        background-color: #121212;
+    }
+
+    body {
+        padding: 5rem 3rem;
+    }
+
+    button {
+        padding: 0;
+        border: none;
+    }
+
+    .title {
+        margin-bottom: 2rem;
+    }
+
+    .exercises {
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .exercises img {
+        width: 100%;
+        height: auto;
+
+        border-radius: 5px;
+
+        object-fit: cover;
+    }
+
+    .exercises a {
+        display: grid;
+        place-items: center;
+        gap: 1rem;
+
+        text-decoration: none;
+
+        color: white;
+        background-color: #212121;
+
+        padding: 1.5rem 1rem;
+
+        border-radius: 5px;
+
+        transition: 200ms;
+    }
+
+    .exercises a:hover {
+        background-color: #292929;
+    }
+
+    @media screen and (max-width: 700px) {
+        .exercises {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+</style>
+
+<body>
+    <h1 class="title">Exercises</h1>
+    <div class="exercises" id="exercises">
+    </div>
+</body>
+
+<script>
+    const exercises = document.getElementById("exercises")
+
+    const links = ["google-home-page-clone"]
+
+    for (let i in links) {
+        const linkElement = document.createElement("a")
+        const link = links[i]
+        const linkName = link.toLowerCase().split('-').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ')
+
+        linkElement.setAttribute("class", "exercises__link")
+        linkElement.setAttribute("href", `./${link}`)
+        linkElement.innerHTML = `<img src="./${link}/screenshot.png" alt=${linkName}><p>${linkName}</p>`
+
+        exercises.append(linkElement)
+
+        console.log(link)
+    }
+</script>
+
+</html>
