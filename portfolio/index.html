@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Portfolio</title>
+
+    <!-- === Feather Icons === -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- === Google Fonts === -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Poppins, Major Mono Display -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header w-100">
+        <nav class="nav flex flex__ac-jsp">
+            <a href="#" class="nav__link fancy-font">Deon Gracias</a>
+
+            <button class="nav__menu-btn grid grid__pc"><i data-feather="menu"></i></button>
+        </nav>
+    </header>
+
+    <main class="main">
+
+        <!-- === Socials === -->
+        <section class="social flex flex__col">
+            <a class="social__link" href="https://linkedin.com/in/deongracias"><i data-feather="linkedin"></i></a>
+            <a class="social__link" href="https://github.com/deon-gracias"><i data-feather="github"></i></a>
+        </section>
+
+        <!-- === Hero === -->
+        <section class="hero section w-100">
+            <div class="hero__container flex container">
+                <div class="hero__profile grid grid__pc">
+                    <img class="hero__profile-img" src="./photo.jpg" alt="Deon Gracias">
+                </div>
+                <h1 class="hero__title w-100 flex flex__col">Hello, I'm <br /> <span class="fancy-font">Deon Gracias</span>
+                </h1>
+
+                <h3 class="hero__subtitle">
+                    I’m a Software Developer, <br />
+                    focused on providing <br />
+                    secure, fast and impactful
+                    digital experiences
+                </h3>
+            </div>
+        </section>
+
+        <!-- === About === -->
+        <section class="about section">
+            <div class="about__container container grid grid__pc">
+                <h2 class="about__title section__title">About</h2>
+
+                <div class="about__details flex flex__col">
+                    <p class="about__para section__para">
+                        I’m Deon Gracias, a 20-year old Software Developer and Student based in Maharshtra, India.
+                    </p>
+                    <p class="about__para section__para">
+                        Currently pursuing Bachelor of Engineering focused in Computer Engineering from Fr. Conceicao
+                        Rodrigues College of Engineering.
+                    </p>
+                    <p class="about__para section__para">
+                        I currently work as a Web Developer and Mentor at Static Int Educare.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="certifications section">
+            <div class="certifications__container container grid grid__pc">
+                <h2 class="certifications__title section__title">Certifications</h2>
+
+                <div class="certifications__display grid" id="certifications__display">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- === Footer === -->
+    <footer class="footer section flex flex__col flex__ac-jc">
+        <div class="footer__container container grid">
+            <div class="footer__contact flex flex__col flex__ac-jc">
+                <a href="mailto:deongracias1@gmail.com" class="footer__contact-item flex flex__ac">
+                    <i data-feather="mail"></i>
+                    <p>deongracias1@gmail.com</p>
+                </a>
+
+                <a href="tel:+919833172549" class="footer__contact-item flex flex__ac">
+                    <i data-feather="phone"></i>
+                    <p>+91 9833172549</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            Copyright &copy; Deon Gracias
+        </div>
+    </footer>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>

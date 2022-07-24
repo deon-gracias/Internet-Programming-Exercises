@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+
     <title>Internet Programming Exercises</title>
 </head>
 
@@ -41,6 +43,10 @@
     .title {
         margin-bottom: 3rem;
         font-weight: normal;
+
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
 
     .exercises {
@@ -88,7 +94,7 @@
 </style>
 
 <body>
-    <h1 class="title"><b>Internet Programming</b> Exercises</h1>
+    <h1 class="title"><img src="./favicon.png" alt="favicon"> <b>Internet Programming</b> Exercises</h1>
     <div class="exercises" id="exercises">
     </div>
 </body>
@@ -96,7 +102,7 @@
 <script>
     const exercises = document.getElementById("exercises")
 
-    const links = ["google-home-page-clone"]
+    const links = ["google-home-page-clone", "portfolio"]
 
     for (let i in links) {
         const linkElement = document.createElement("a")
