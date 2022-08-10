@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Group Projects</title>
+</head>
+
+<body class="grid items-center justify-center h-screen font-sans bg-gray-200">
+    <main class="flex flex-col items-center justify-center gap-4 container">
+        <h1 class="text-4xl mt-[6rem] mb-6 text-center font-bold">
+            Group Projects
+        </h1>
+
+        <form class="min-h-min self-start p-9 w-full bg-gray-50 rounded-lg shadow-2xl" id="group-form">
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="group_number">
+                    Group Number
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="group_number" type="text" placeholder="Group Number" required>
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="members">
+                    Team Members
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="members" type="text" placeholder="Team Members" required>
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="topic">
+                    Topic
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="topic" type="text" placeholder="Topic" required>
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="abstract">
+                    Abstract
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="abstract" type="text" placeholder="Abstract" required>
+            </div>
+            <div class="mb-10">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="mentors">
+                    Mentors
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="mentors" type="text" placeholder="Mentors" required>
+            </div>
+            <div class="flex items-center justify-between">
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+                    type="button">
+                    Add
+                </button>
+            </div>
+        </form>
+
+        <div class="min-h-min self-start p-9 w-full bg-gray-50 rounded-lg shadow-2xl">
+            <h2 class="text-2xl mt-[1rem] mb-10 text-center font-bold">Groups</h2>
+            <div class="overflow-auto">
+                <table id="table" class="w-full text-sm text-left text-center text-gray-500 table-auto"></table>
+            </div>
+        </div>
+    </main>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
