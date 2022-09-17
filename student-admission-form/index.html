@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Admission Form</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- === Google Fonts === -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Poppins, Major Mono Display -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="form__container">
+      <div class="form__wrapper">
+        <form>
+          <h1 class="form__title">Admission</h1>
+          <!-- === Personal Details === -->
+          <h3 class="form__section-title">Personal Details</h3>
+          <!-- First Name -->
+          <div class="form__input-control">
+            <label for="first-name" class="form__input-label">First Name</label>
+            <input type="text" name="first-name" id="first-name" />
+          </div>
+
+          <!-- Last Name -->
+          <div class="form__input-control">
+            <label for="last-name" class="form__input-label">Last Name</label>
+            <input type="text" name="last-name" id="last-name" />
+          </div>
+
+          <!-- Phone Number -->
+          <div class="form__input-control">
+            <label for="phone" class="form__input-label">Phone Number</label>
+            <input type="text" name="phone" id="phone" />
+          </div>
+
+          <!-- Email -->
+          <div class="form__input-control">
+            <label for="email" class="form__input-label">Email</label>
+            <input type="email" name="email" id="email" />
+          </div>
+
+          <!-- === Academic Details === -->
+
+          <h3 class="form__section-title">Academic Details</h3>
+          <!-- 10th score -->
+          <div class="form__input-control score">
+            <label for="scores" class="form__input-label">10th Score</label>
+            <div class="form__input-group">
+              <input type="number" name="scores" id="scores" />
+              <span>%</span>
+            </div>
+          </div>
+
+          <!-- 12th score -->
+          <div class="form__input-control score">
+            <label for="scores" class="form__input-label">12th Percent</label>
+            <div class="form__input-group">
+              <input type="number" name="scores" id="scores" />
+              <span>%</span>
+            </div>
+          </div>
+
+          <!-- CET score -->
+          <div class="form__input-control score">
+            <label for="scores" class="form__input-label">CET Score</label>
+            <div class="form__input-group">
+              <input type="number" name="scores" id="scores" />
+              <span>%</span>
+            </div>
+          </div>
+
+          <!-- JEE score -->
+          <div class="form__input-control score">
+            <label for="scores" class="form__input-label">JEE Score</label>
+            <div class="form__input-group">
+              <input type="number" name="scores" id="scores" />
+              <span>%</span>
+            </div>
+          </div>
+
+          <!-- === Preferences === -->
+
+          <h3 class="form__section-title">Preferences</h3>
+          <!-- 1st Preference -->
+          <div class="form__input-control">
+            <label for="first-pref" class="form__input-label"
+              >1st Preference</label
+            >
+            <select
+              type="first-pref"
+              name="first-pref"
+              id="first-pref"
+            ></select>
+          </div>
+
+          <!-- 2nd Preference -->
+          <div class="form__input-control">
+            <label for="first-pref" class="form__input-label"
+              >2nd Preference</label
+            >
+            <select
+              type="second-pref"
+              name="second-pref"
+              id="second-pref"
+            ></select>
+          </div>
+
+          <!-- 3rd Preference -->
+          <div class="form__input-control">
+            <label for="first-pref" class="form__input-label"
+              >3rd Preference</label
+            >
+            <select
+              type="third-pref"
+              name="third-pref"
+              id="third-pref"
+            ></select>
+          </div>
+
+          <button class="submit-btn">Submit</button>
+        </form>
+      </div>
+    </main>
+
+    <script>
+      const firstPrefChoice = document.getElementById("first-pref");
+      const secondPrefChoice = document.getElementById("second-pref");
+      const thirdPrefChoice = document.getElementById("third-pref");
+
+      const options = [
+        "Computer Engineering",
+        "Aritificial Intelligence and Data Science",
+        "Mechaincal Engineering",
+        "Electrical Engineering",
+      ];
+
+      function appendOptions(prefChoice) {
+        options.forEach((o) => {
+        const option = document.createElement("option");
+        option.innerHTML = o;
+        option.value = o;
+        prefChoice.appendChild(option);
+      });
+      }
+
+
+      appendOptions(firstPrefChoice)
+      appendOptions(secondPrefChoice)
+      appendOptions(thirdPrefChoice)
+    </script>
+  </body>
+</html>
