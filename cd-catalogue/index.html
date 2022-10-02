@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CD Catalogue</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-mono">
+
+    <main class="p-4 grid place-items-center gap-24">
+        <nav class="flex gap-4">
+            <a class="cursor-pointer bg-emerald-500 px-4 py-2 rounded-full text-white" href="#my-catalogue">My Catalogue</a>
+            <a class="cursor-pointer bg-emerald-500 px-4 py-2 rounded-full text-white" href="#my-playlist">My Playlist</a>
+        </nav>
+        <div>
+            <h2 class="text-2xl text-center font-bold mb-4">My Catalogue</h2>
+            <div class="grid grid-cols-2 gap-5" id="my-catalogue">
+            </div>
+        </div>
+        <div class="max-w-lg" id="my-playlist"></div>
+    </main>
+
+    <a href="#" class="fixed bottom-4 right-4 bg-emerald-500 text-white px-4 py-2 rounded-full">
+        ^ Back to top
+    </a>
+
+    <!-- JS -->
+    <script>
+
+        function loadXMLDoc(path) {
+            xhttp = new XMLHttpRequest();
+            xhttp.open("GET", path, false);
+            xhttp.send();
+            return xhttp.responseXML;
+        }
+
+        const xml = loadXMLDoc('cd-catalogue/cd-catalogue.xml')
+
+        // === XML (My Catalogue) ===
+        function addCdTable(title, artist, country, company, price, year) {
+            const catalogue = document.getElementById('my-catalogue')
+
+            // Create table row
+            const row = document.createElement('div')
+            row.classList = "max-w-sm rounded-lg overflow-hidden shadow-md px-6 py-4"
+
+            // Add data to table row
+            row.innerHTML = `
+                <div class="font-bold text-xl mb-2">${title}</div>
+                <p class="text-gray-500 text-base">${artist}</p>
+                <div class="text-gray-500 text-base">
+                    <span class="inline-block bg-red-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 my-2">${country}</span>
+                    <span class="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 my-2">${year}</span>
+                </div>
+                <div class="font-semibold text-lg my-2">$ ${price}</div>
+            `
+
+            // Append row to table
+            catalogue.appendChild(row)
+        }
+
+        function renderXMLData(xmlData) {
+
+            let txt = "";
+            let data = {
+                title: xmlData.getElementsByTagName("TITLE"),
+                artist: xmlData.getElementsByTagName("ARTIST"),
+                country: xmlData.getElementsByTagName("COUNTRY"),
+                company: xmlData.getElementsByTagName("COMPANY"),
+                price: xmlData.getElementsByTagName("PRICE"),
+                year: xmlData.getElementsByTagName("YEAR"),
+            }
+            for (let i = 0; i < data.title.length; i++) {
+                addCdTable(
+                    data.title[i].childNodes[0].nodeValue,
+                    data.artist[i].childNodes[0].nodeValue,
+                    data.country[i].childNodes[0].nodeValue,
+                    data.company[i].childNodes[0].nodeValue,
+                    data.price[i].childNodes[0].nodeValue,
+                    data.year[i].childNodes[0].nodeValue
+                )
+            }
+        }
+
+        renderXMLData(xml);
+
+        // === XSLT (My Playlist) ===
+
+
+        const xsl = loadXMLDoc('cd-catalogue/cd-catalogue.xsl')
+
+        xsltProcessor = new XSLTProcessor();
+        xsltProcessor.importStylesheet(xsl);
+        resultDocument = xsltProcessor.transformToFragment(xml, document);
+        document.getElementById("my-playlist").appendChild(resultDocument);
+
+
+    </script>
+</body>
+
+</html>
