@@ -12,10 +12,23 @@ body input select button {
   font-size: 1rem;
 }
 
+pre {
+  font-family: monospace;
+}
+
+button {
+  padding: 0.5rem 2rem;
+  background-color: lightblue;
+  border: none;
+  border-radius: 5px;
+}
+
 .form__container {
   display: grid;
   place-items: center;
   background-color: #212121;
+
+  min-height: 100vh;
 }
 
 .form__wrapper {
