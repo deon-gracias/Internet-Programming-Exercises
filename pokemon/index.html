@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="my-24 grid place-items-center">
+    <h2 class="text-4xl font-bold text-center">Pokémon</h2>
+    <div class="w-full grid grid-cols-2 gap-5 px-8 py-16 max-w-4xl md:grid-cols-3" id="pokemon-container">
+    </div>
+    <div class="max-w-4xl w-full flex justify-between px-8 gap-4">
+        <button class="w-full shadow-lg bg-blue-500 hover:bg-blue-700 text-white font-bold transition py-4 px-4 rounded-lg">&lt- Prev</button>
+        <button class="w-full shadow-lg bg-blue-500 hover:bg-blue-700 text-white font-bold transition py-4 px-4 rounded-lg">Next -&gt</button>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        const pokeapi = "https://pokeapi.co/api/v2";
+        const container = $('#pokemon-container')
+
+        const typeColor = {
+            fire: "bg-orange-400",
+            water: "bg-blue-400",
+            flying: "bg-blue-200",
+            grass: "bg-green-300",
+            bug: "bg-yellow-500",
+            poison: "bg-purple-400",
+            normal : "bg-gray-300",
+        }
+
+        function renderPokemons(pokemons) {
+            // For each pokemon found in results
+            $.each(pokemons.results, function (index, pokemon) {
+
+                // Get more detailed pokemon data
+                $.get(pokemon.url, function (data, status) {
+                    let types = "";
+
+                    // Create type chips
+                    $.each(data.types, function (index, value) {
+                        const name = value.type.name
+                        console.log(typeColor[name])
+                        types += `<span class="bg-slate-200 ${typeColor[name]} inline-block rounded-full px-3 py-1 text-sm font-bold text-gray-700 mr-2 my-2 capitalize">${name}</span>`
+                    })
+
+                    // Append Pokemon Card
+                    container.append(`
+                    <div class="rounded-lg overflow-hidden shadow-lg px-6 py-9 grid place-items-center">
+                        <img class="w-full" src="${data.sprites.front_default}" alt="${pokemon.name}">
+                        <div>
+                            <div class="font-extrabold text-2xl mb-4 capitalize">${pokemon.name}</div>
+                        </div>
+                        <div>
+                            ${types}
+                        </div>
+                    </div>
+                    `)
+                })
+            })
+        }
+
+        // Render initial pokemon list
+        $.get(`${pokeapi}/pokemon`, function (data, status) {
+            if (status == "success")
+                renderPokemons(data)
+        })
+    </script>
+</body>
+
+</html>
